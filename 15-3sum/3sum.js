@@ -6,8 +6,9 @@ var threeSum = function(nums) {
     nums.sort((a,b)=>a-b);
     let res=[];
     for(let i=0;i<nums.length;i++){
-        let l=i+1,r=nums.length-1;
+        //if (nums[i] > 0) break;
         if(i>0 && nums[i]===nums[i-1]) continue;
+        let l=i+1,r=nums.length-1;
         while(l<r){
             let curSum=nums[i]+nums[l]+nums[r];
             if(curSum>0){
