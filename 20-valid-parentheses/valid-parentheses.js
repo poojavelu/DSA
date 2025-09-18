@@ -10,7 +10,6 @@ var isValid = function(s) {
         '}':'{'
     }
     for(let c of s){
-        console.log(c)
         if(stack.length>0 && stack[stack.length-1]===closeToOpen[c]){
             stack.pop();
         }else{
