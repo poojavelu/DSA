@@ -4,15 +4,14 @@
  * @return {boolean}
  */
 var isAnagram = function(s, t) {
-    if (s.length !== t.length) return false;
+    if(s.length!==t.length) return false;
 
-    const count = {};
+    const count= {};
 
-    for (let i = 0; i < s.length; i++) {
-        count[s[i]] = (count[s[i]] || 0) + 1;
-        count[t[i]] = (count[t[i]] || 0) - 1;
+    for(let i=0; i<s.length;i++){
+        count[s[i]]= (count[s[i]] || 0) +1;
+        count[t[i]]= (count[t[i]] || 0) -1;
     }
 
-    // Check if all counts are zero
-    return Object.values(count).every(val => val === 0);
+    return Object.values(count).every(val=>val===0);
 };
