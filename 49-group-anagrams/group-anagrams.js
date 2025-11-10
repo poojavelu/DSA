@@ -3,14 +3,14 @@
  * @return {string[][]}
  */
 var groupAnagrams = function(strs) {
-    const map = new Map();
-    for(let str of strs){
-        const key = str.split('').sort().join();
-        if(!map.has(key)){
-            map.set(key,[str])
-        }else{
-            map.get(key).push(str);
+    const map = new Map()
+    for(let word of strs) {
+        const key = word.split("").sort().join("")
+        if(map.has(key)) {
+            map.get(key).push(word)
+        } else {
+            map.set(key, [word])
         }
     }
-    return Array.from(map.values());
+    return Array.from(map.values())
 };
