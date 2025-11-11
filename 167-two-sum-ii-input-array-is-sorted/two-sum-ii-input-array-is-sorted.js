@@ -10,7 +10,7 @@ var twoSum = function(numbers, target) {
         if(curSum>target){
             r--;
         }else if(curSum<target){
-            l++;
+            l++
         }else{
             return [l+1,r+1];
         }
