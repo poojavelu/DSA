@@ -4,21 +4,18 @@
  * @return {number}
  */
 var characterReplacement = function(s, k) {
-    let l=0;
     let count={};
     let maxCount=0;
     let maxLength=0;
-
+    let l=0;
     for(let r=0;r<s.length;r++){
-        let char=s[r];
-        count[char]=(count[char] || 0)+1;
-        maxCount=Math.max(maxCount,count[char]);
+        count[s[r]]=(count[s[r]] ||0)+1;
+        maxCount=Math.max(maxCount,count[s[r]]);
         while((r-l+1)-maxCount>k){
             count[s[l]]--;
             l++;
         }
-        maxLength=Math.max(maxLength,r-l+1);
+        maxLength=Math.max(maxLength,(r-l+1));
     }
-
     return maxLength;
 };
