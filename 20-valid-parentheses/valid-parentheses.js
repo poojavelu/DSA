@@ -3,8 +3,8 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-    const stack=[];
-    const closeToOpen={
+    let stack=[];
+    let closeToOpen={
         ')':'(',
         ']':'[',
         '}':'{'
@@ -15,10 +15,10 @@ var isValid = function(s) {
                 stack.pop();
             }else{
                 return false;
-            }           
+            }
         }else{
-            stack.push(c);
+            stack.push(c)
         }
     }
-    return stack.length===0;
+    return stack.length===0
 };
