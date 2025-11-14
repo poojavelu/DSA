@@ -10,19 +10,16 @@ var MinStack = function() {
  */
 MinStack.prototype.push = function(val) {
     this.stack.push(val);
-    if(this.minStack.length === 0 || val <= this.minStack[this.minStack.length - 1]){
-        this.minStack.push(val);
-    }
+    val=Math.min(val,this.minStack.length===0?val:this.minStack[this.minStack.length-1])
+    this.minStack.push(val);
 };
 
 /**
  * @return {void}
  */
 MinStack.prototype.pop = function() {
-    let val = this.stack.pop();
-    if (val === this.minStack[this.minStack.length - 1]) {
-        this.minStack.pop();
-    }
+    this.stack.pop();
+    this.minStack.pop();
 };
 
 /**
