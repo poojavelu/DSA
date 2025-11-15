@@ -3,23 +3,23 @@
  * @return {number}
  */
 var evalRPN = function(tokens) {
-    const stack=[];
-    for(let t of tokens){
-        if(t==='+'){
-            stack.push(stack.pop()+stack.pop());
-        }else if(t==='-'){
-            const a=stack.pop();
-            const b=stack.pop();
-            stack.push(b-a);
-        }else if(t==='*'){
-            stack.push(stack.pop()*stack.pop());
-        }else if(t==='/'){
-            const a=stack.pop();
-            const b=stack.pop();
-            stack.push(Math.trunc(b/a));
+    let res=[];
+    for(let i=0;i<tokens.length;i++){
+        if(tokens[i]==='+'){
+            res.push(res.pop()+res.pop());
+        }else if(tokens[i]==='-'){
+            let a = res.pop();
+            let b = res.pop();
+            res.push(b-a);
+        }else if(tokens[i]==='/'){
+            let a = res.pop();
+            let b = res.pop();
+            res.push(Math.trunc(b/a));
+        }else if(tokens[i]==='*'){
+            res.push(res.pop()*res.pop());
         }else{
-            stack.push(Number(t));
-        }
+            res.push(Number(tokens[i]));
+        }      
     }
-    return stack.pop();
+    return res.pop();
 };
